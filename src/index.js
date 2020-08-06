@@ -1,7 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 const { uuid } = require('uuidv4');
+const dotenv = require('dotenv');
 
+dotenv.config();
+const port = process.env.PORT;
 
 const app = express();
 app.use(express.json());
@@ -42,6 +45,7 @@ app.post('/create', (request, response) => {
   return response.json(recipe);
 });
 
-app.listen(1711, () => {
+
+app.listen(port, () => {
   console.log('🧨 Backend started. 🎃');
 });
